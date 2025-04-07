@@ -19,3 +19,9 @@ def test_profile_is_show(client, create_user, create_profile):
     assertTemplateUsed(response, "profiles/profile.html")
     assertTemplateUsed(response, "base.html")
     assert response.context["profile"] == profile
+
+
+def test_profile_str_method(create_user, create_profile):
+    user = create_user
+    profile = create_profile(user)
+    assert str(profile) == profile.user.username

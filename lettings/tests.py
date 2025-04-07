@@ -22,3 +22,11 @@ def test_letting_is_shown(client, create_address, create_letting):
     assertTemplateUsed(response, "base.html")
     assert response.context["title"] == letting.title
     assert response.context["address"] == address
+
+
+@pytest.mark.django_db
+def test_address_and_letting_str_method(create_address, create_letting):
+    address = create_address()
+    letting = create_letting(address, title="Lovecraft's House")
+    assert str(address) == f"{address.number} {address.street}"
+    assert str(letting) == letting.title
