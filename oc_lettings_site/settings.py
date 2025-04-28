@@ -1,11 +1,18 @@
 import os
 from pathlib import Path
 
+import environ
 import sentry_sdk
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -118,8 +125,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-SENTRY_DSN = os.environ.get("SENTRY_DSN")
-print(f"SENTRY_DSN: {SENTRY_DSN}")
+SENTRY_DSN = env("SENTRY_DSN")
 
 sentry_sdk.init(
     dsn=SENTRY_DSN,
