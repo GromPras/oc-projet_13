@@ -35,6 +35,6 @@ jobs:
     - name: Test with pytest through coverage
       run: |
         coverage run -m pytest
-    - name: Check coverage with fail under 100% (for testing)
+    - name: Check coverage with fail under 80%
       run: |
-        coverage report --fail-under=100
+        coverage report --fail-under=80
