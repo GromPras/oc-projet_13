@@ -10,6 +10,7 @@ env = environ.Env(
     SECRET_KEY=(str, "fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s"),
     ALLOWED_HOSTS=(list, ["http://127.0.0.1", "localhost", "[::1]"]),
     CSRF_TRUSTED_ORIGINS=(list, ["http://127.0.0.1:8000", "http://localhost:8000"]),
+    SENTRY_DSN=(str, "sentry_key"),
 )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
