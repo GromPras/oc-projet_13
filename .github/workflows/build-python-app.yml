@@ -55,5 +55,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ github.sha }}
-          image: grompras/oc_hub
+          tags: grompras/oc_hub:${{ github.sha }}
