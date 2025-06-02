@@ -63,4 +63,4 @@ jobs:
       - name: Post request to deploy
         uses: muinmomin/webhook-action@v1.0.0
         with:
-          url: ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io%2Fgrompras%2Foc_hub%40${{ github.sha }}
+          url: ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io/grompras/oc_hub:${{ github.sha }}
