@@ -68,4 +68,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Post request to deploy
-      - run: curl -X POST ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io/grompras/oc_hub:${{ github.sha }}
+        run: curl -X POST ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io/grompras/oc_hub:${{ github.sha }}
