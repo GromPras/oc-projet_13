@@ -63,9 +63,8 @@ jobs:
         run: echo "Awaiting manual approval to deploy to Render..."
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && needs.await-approval.result == 'success'
     needs: await-approval
-    if: needs.await-approval.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Post request to deploy
