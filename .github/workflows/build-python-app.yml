@@ -5,13 +5,12 @@ name: Build Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "**" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     env:
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -38,7 +37,6 @@ jobs:
     - name: Check coverage
       run: |
         coverage report --fail-under=80
-
   docker:
     needs: build
     runs-on: ubuntu-latest
@@ -55,12 +53,20 @@ jobs:
           push: true
           tags: grompras/oc_hub:${{ github.sha }}
 
-  deploy:
+  await-approval:
+    if: github.ref == 'refs/heads/main'
     needs: docker
+    environment: deploy-approval
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: "Manual deploy"
+        run: echo "Awaiting manual approval to deploy to Render..."
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: await-approval
+    if: needs.await-approval.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
       - name: Post request to deploy
-        uses: muinmomin/webhook-action@v1.0.0
-        with:
-          url: ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io/grompras/oc_hub:${{ github.sha }}
+      - run: curl -X POST ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io/grompras/oc_hub:${{ github.sha }}
