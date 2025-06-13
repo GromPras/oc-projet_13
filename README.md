@@ -86,10 +86,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 ### Description
 
-Le répertoire du projet intègre :
-- L'automatisation des tests aux push sur chaque branche
-- Un build de l'image docker aux push sur toutes les branches également
-- Le déploiement de l'application, après validation manuelle par une personne autorisée, si push sur la branche `main`
+![Workflow Chart](https://github.com/GromPras/oc-projet_13/blob/main/assets/workflow-diagram.webp?raw=true)
 
 ### Configuration
 
