@@ -6,8 +6,16 @@ name: Compile Python application
 on:
   push:
     branches: [ "**" ]
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+      - 'readthedocs.yaml'
   pull_request:
     branches: [ "main" ]
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+      - 'readthedocs.yaml'
 
 jobs:
   productionize:
