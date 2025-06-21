@@ -51,7 +51,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: grompras/oc_hub:${{ github.sha }}
+          tags: grompras/oc_hub:latest
+          labels: ${{ github.sha }}
 
   await-approval:
     if: github.ref == 'refs/heads/main'
@@ -68,4 +69,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Post request to deploy
-        run: curl -X POST ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io/grompras/oc_hub:${{ github.sha }}
+        run: curl -X POST ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io/grompras/oc_hub:latest
