@@ -1,16 +1,47 @@
-User Guide (Use Cases)
+User Guide
 ======================
 
-Describe how end-users or admins will interact with your app.
+Use Cases
+----------------
 
-Use Case: Create an item
-------------------------
+.. graphviz::
+   :caption: Use Case Diagram for oc-lettings-site
 
-1. Go to “Items” page  
-2. Click “New Item”  
-3. Fill form and submit  
+   digraph UseCase {
+     graph [rankdir=TB, splines=ortho];
+     node [shape=ellipse, fontsize=12, fontname="Helvetica"];
+     
+     /* Actors */
+     Guest [shape=actor, label="Guest"];
+     User [shape=actor, label="Registered User"];
+     Admin [shape=actor, label="Administrator"];
 
-Use Case: …
+     /* Use cases */
+     Browse [label="Browse Listings"];
+     ViewDetail [label="View Listing Details"];
+     Register [label="Register"];
+     Login [label="Login"];
+     ManageProfile [label="Manage Profile"];
+     CreateLetting [label="Create Listing"];
+     EditLetting [label="Edit Listing"];
+     DeleteLetting [label="Delete Listing"];
+     ManageUsers [label="Manage Users"];
+     ManageAll [label="Manage All Listings"];
 
-Include screenshots or output examples where helpful.
+     /* Associations */
+     Guest -> Browse;
+     Guest -> ViewDetail;
+     Guest -> Register;
+     Guest -> Login;
+
+     User -> Browse;
+     User -> ViewDetail;
+     User -> ManageProfile;
+     User -> CreateLetting;
+     User -> EditLetting;
+     User -> DeleteLetting;
+
+     Admin -> ManageUsers;
+     Admin -> ManageAll;
+   }
 

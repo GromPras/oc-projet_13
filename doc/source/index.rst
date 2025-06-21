@@ -15,7 +15,6 @@ Welcome to OC Letting's documentation!
    quickstart
    tech_stack
    database_schema
-   api_reference
    usage_guide
    deployment
 

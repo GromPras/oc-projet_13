@@ -1,10 +1,8 @@
 Technologies & Languages
 ========================
 
-List and briefly describe each technology, framework or language:
-
-- **Language**: Python 3.x  
-- **Framework**: Flask / Django / FastAPI  
-- **Database**: PostgreSQL / MySQL / SQLite  
-- **Other**: Redis, Celery, Docker, etc.
+- **Language**: `Python 3.x https://www.python.org/`
+- **Framework**: `Django https://www.djangoproject.com/`
+- **Database**: `SQLite https://www.sqlite.org/`
+- **Other**: `Docker https://www.docker.com/`, `Flake8 https://pypi.org/project/flake8/`, `Pytest https://docs.pytest.org/en/stable/`
 
