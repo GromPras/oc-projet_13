@@ -9,13 +9,13 @@ on:
     paths-ignore:
       - 'docs/**'
       - 'README.md'
-      - 'readthedocs.yaml'
+      - '.readthedocs.yaml'
   pull_request:
     branches: [ "main" ]
     paths-ignore:
       - 'docs/**'
       - 'README.md'
-      - 'readthedocs.yaml'
+      - '.readthedocs.yaml'
 
 jobs:
   productionize:
