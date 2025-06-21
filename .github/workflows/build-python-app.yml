@@ -33,7 +33,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest through coverage
       run: |
-        coverage run -m pytest
+        coverage run -m pytest src/
     - name: Check coverage
       run: |
         coverage report --fail-under=80
