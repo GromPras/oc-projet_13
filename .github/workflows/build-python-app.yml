@@ -67,5 +67,9 @@ jobs:
     needs: await-approval
     runs-on: ubuntu-latest
     steps:
-      - name: Post request to deploy
-        run: curl -X POST ${{ secrets.WEBHOOK_URL }}&imgURL=docker.io%2Fgrompras%2Foc_hub%3A${{ github.sha }}
+      - name: Post request to deploy (Perl to encode)
+        env:
+          RAW_URL: docker.io/grompras/oc_hub:${{ github.sha }}
+        run: |
+          URL=$(echo -n "$RAW_IMG" | perl -MURI::Escape -ne 'chomp;print uri_escape($_)')
+          curl POST "${secrets.WEBHOOK_URL}&imgURL=${URL}
