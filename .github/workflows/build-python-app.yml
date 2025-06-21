@@ -70,6 +70,7 @@ jobs:
       - name: Post request to deploy (Perl to encode)
         env:
           RAW_URL: docker.io/grompras/oc_hub:${{ github.sha }}
+          WEBHOOK_URL: secrets.WEBHOOK_URL
         run: |
           URL=$(echo -n "$RAW_IMG" | perl -MURI::Escape -ne 'chomp;print uri_escape($_)')
-          curl POST "${secrets.WEBHOOK_URL}&imgURL=${URL}"
+          curl -X POST "${WEBHOOK_URL}&imgURL=${URL}"
