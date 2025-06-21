@@ -72,5 +72,6 @@ jobs:
           RAW_URL: docker.io/grompras/oc_hub:${{ github.sha }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         run: |
-          URL=$(echo -n "$RAW_IMG" | perl -MURI::Escape -ne 'chomp;print uri_escape($_)')
-          curl -X POST "${WEBHOOK_URL}&imgURL=${URL}"
+          URL=$(echo -n "$RAW_URL" | perl -MURI::Escape -ne 'chomp;print uri_escape($_)')
+          echo "→ ENC_URL = $URL"
+          curl -v -X POST "${WEBHOOK_URL}&imgURL=${URL}"
