@@ -19,6 +19,7 @@ RUN pip install -r requirements.txt
 
 COPY src/ ./src/
 COPY static/ ./static/
+COPY  oc-lettings-site.sqlite3 ./oc-lettings-site.sqlite3
 
 WORKDIR /usr/src/app/src
 RUN python manage.py collectstatic --noinput
