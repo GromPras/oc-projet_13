@@ -8,4 +8,4 @@ services:
       - SENTRY_DSN=${SENTRY_DSN}
       - PORT=8000
     ports:
-      - 8009:8000
+      - 8000:8000
