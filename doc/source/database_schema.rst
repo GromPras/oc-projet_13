@@ -93,3 +93,7 @@ Data Model Descriptions
             - id (AutoField, primary key)
             - user_id (OneToOneField to User.id)
             - favorite_city (CharField, max_length=64, blank=True)
+
+
+* Go back to : :doc:`database_schema`
+* Next go to : :doc:`usage_guide`

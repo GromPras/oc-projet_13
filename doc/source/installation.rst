@@ -34,12 +34,16 @@ Installation Steps
     All the environment variables have default values that allow the app to run.
     However, the error tracking with Sentry won't work without a valid DSN key. If you want this functionality you will need to set the SENTRY_DSN environment variable to a valid DSN key from your sentry account. Then:
     1. Create a `.env` file in the root directory of the project:
-        .. code-block:: sh
+    .. code-block:: sh
 
-            cd /path/to/oc-projet_13
-            touch .env
+        cd /path/to/oc-projet_13
+        touch .env
 
     2. Edit the `.env` file with your favorite text editor:
-        .. code-block:: sh
+    .. code-block:: sh
 
-            SENTRY_DSN=your_valid_dsn_key
+        SENTRY_DSN=your_valid_dsn_key
+
+
+* Go back to : :doc:`introduction`
+* Next go to : :doc:`quickstart`

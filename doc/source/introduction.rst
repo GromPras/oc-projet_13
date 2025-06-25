@@ -10,3 +10,4 @@ Description of the project’s goals, scope and high-level functionality.
 - **Audience**: People that want to rent properties as well as people looking to rent them.
 - **Key features**: Simple interface to list properties and profiles. Error tracking with Sentry.
 
+* Next go to : :doc:`installation`
