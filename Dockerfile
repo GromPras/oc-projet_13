@@ -19,13 +19,13 @@ RUN pip install -r requirements.txt
 
 COPY src/ ./src/
 COPY static/ ./static/
-COPY  oc-lettings-site.sqlite3 ./oc-lettings-site.sqlite3
+COPY entrypoint.sh ./src/entrypoint.sh
 
-WORKDIR /usr/src/app/src
-RUN python manage.py collectstatic --noinput
+RUN chmod +x /usr/src/app/src/entrypoint.sh \
+    && chown -R app:app /usr/src/app
 
 USER app
 
 # WORKDIR is redundant but makes it clear we need to run the app from within the src/ directory
 WORKDIR /usr/src/app/src
-CMD gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT
+ENTRYPOINT ["./entrypoint.sh"]
