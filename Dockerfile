@@ -26,6 +26,5 @@ RUN chmod +x /usr/src/app/src/entrypoint.sh \
 
 USER app
 
-# WORKDIR is redundant but makes it clear we need to run the app from within the src/ directory
 WORKDIR /usr/src/app/src
 ENTRYPOINT ["./entrypoint.sh"]
