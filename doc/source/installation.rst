@@ -5,7 +5,7 @@ Prerequisites
 -------------
 
 * Git
-* Python >= 3.13
+* Python >= 3.12
 * A Sentry account (optional)
 
 .. _installation_steps:
