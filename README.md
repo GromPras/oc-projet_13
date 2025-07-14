@@ -95,7 +95,7 @@ Afin de mettre en place le déploiement automatique il faut paramétrer certaine
 
 #### Côté GitHub
 Créer les Secrets suivants dans settings>Secrets and variables :
-- `DOCKERHUB_TOKEN` & `DOCKERHUB_TOKEN` pour la mise en ligne de l'image sur DockerHub
+- `DOCKERHUB_USERNAME` & `DOCKERHUB_TOKEN` pour la mise en ligne de l'image sur DockerHub
 - `SENTRY_DSN` pour permettre le build de l'application et de l'image
 - `WEBHOOK_URL` pour le déploiement sur Render
 

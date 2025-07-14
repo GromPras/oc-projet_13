@@ -9,7 +9,7 @@ def trigger_error(request):
     Simple function to test Sentry integration
     Should be removed after validation
     """
-    division_by_zero = 1 / 0
+    division_by_zero = 1 / 0  # noqa
 
 
 urlpatterns = [
@@ -17,5 +17,5 @@ urlpatterns = [
     path("lettings/", include("lettings.urls")),
     path("profiles/", include("profiles.urls")),
     path("admin/", admin.site.urls),
-    path('sentry-debug/', trigger_error),
+    path("sentry-debug/", trigger_error),
 ]
